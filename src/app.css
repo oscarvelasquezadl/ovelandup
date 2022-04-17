@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-hero {
+    position: relative;
+    z-index: 20;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
