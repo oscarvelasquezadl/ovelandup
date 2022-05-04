@@ -1,5 +1,21 @@
 $color: orange;
 
 body {
-  color: $color;
+  margin: 0;
+}
+
+.header-area {
+  position: relative;
+  z-index: 20;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/header.svg");
+  padding: 30px;
+  height: 100vh;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+    color: #c1d1f3;
+  }
 }

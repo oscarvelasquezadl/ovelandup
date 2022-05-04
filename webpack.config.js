@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const {resolve} = require("@babel/core/lib/vendor/import-meta-resolve");
 
 module.exports = {
     entry: './src/index.js',
@@ -54,6 +56,15 @@ module.exports = {
             filename: "main.html"
         }),
 
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, "src", "assets/images"),
+                    to: "assets/images",
+                }
+            ]
+        })
     ]
 }
