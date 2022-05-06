@@ -1,4 +1,5 @@
-$color: orange;
+$colorWhite: #c1d1f3;
+$colorDark: #3621c4;
 
 body {
   margin: 0;
@@ -16,6 +17,34 @@ body {
   h1 {
     margin: 0;
     text-align: center;
-    color: #c1d1f3;
+    color: $colorWhite;
+  }
+}
+
+.card-social {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0;
+  text-align: center;
+
+  &_container {
+    background: rgba($colorWhite, 0.5);
+    padding: 10px;
+    width: fit-content;
+    border-radius: 50px;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin: 0 5px 0 5px;
+
+    transition: transform 300ms ease-in-out, box-shadow 100ms ease-in;
+  }
+
+  img:hover {
+    box-shadow: 0 0 2px 2px $colorDark;
+    transform: rotate(360deg);
   }
 }
