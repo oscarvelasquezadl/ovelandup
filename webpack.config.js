@@ -2,14 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const {resolve} = require("@babel/core/lib/vendor/import-meta-resolve");
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/app.js',
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'app.js',
     },
 
     resolve: {
@@ -47,8 +46,18 @@ module.exports = {
                 ]
             },
             {
-                test: /\.png/,
-                type: 'asset/resources'
+                test: /\.(png|svg)/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[hash][ext][query]',
+                },
+            },
+            {
+                test: /\.(woff|woff2)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/fonts/[hash][ext][query]'
+                }
             }
         ]
     },
@@ -56,11 +65,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            template: './index.html',
-            filename: "main.html"
+            template: './src/index.html',
+            filename: "index.html"
         }),
 
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'app.css'
+        }),
 
         new CopyPlugin({
             patterns: [
