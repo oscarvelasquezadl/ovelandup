@@ -26,7 +26,7 @@
   "description": "Oveland Up",
   "main": "tailwind.config.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "webpack --config webpack.config.dev.js",
     "build": "webpack --mode production"
   },
   "repository": {
