@@ -28,6 +28,7 @@
   "main": "tailwind.config.js",
   "scripts": {
     "dev": "webpack --config webpack.config.dev.js",
+    "dev:watch": "webpack --config webpack.config.dev.js --watch",
     "prod": "webpack --mode production --config webpack.config.js"
   },
   "repository": {
