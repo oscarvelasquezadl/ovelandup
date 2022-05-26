@@ -1,3 +1,4 @@
 const fs = require('fs');
+require('dotenv').config();
 
-fs.writeFileSync('./.env', `API=${process.env.APP_NAME}\n`);
+fs.writeFileSync('./.env', `APP_NAME="${process.env.APP_NAME}"\n`);
