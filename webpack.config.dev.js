@@ -9,7 +9,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
     mode: "development",
 
-    entry: './src/app.js',
+    entry: './src/main.js',
 
     output: {
         path: path.resolve(__dirname, 'dist'),
