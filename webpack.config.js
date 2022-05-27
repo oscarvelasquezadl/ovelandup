@@ -16,7 +16,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.jsx'],
 
         alias: {
             '@utils': path.resolve(__dirname, 'src/utils'),
@@ -30,7 +30,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
@@ -70,6 +70,10 @@ module.exports = {
                 generator: {
                     filename: 'assets/fonts/[hash][ext][query]'
                 }
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
             }
         ]
     },
@@ -77,8 +81,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            template: './src/index.html',
-            filename: "index.html"
+            template: './public/index.html',
+            filename: './index.html'
         }),
 
         new MiniCssExtractPlugin({
@@ -88,8 +92,8 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, "src", "assets/images"),
-                    to: "assets/images",
+                    from: path.resolve(__dirname, 'src', 'assets/images'),
+                    to: 'assets/images',
                 }
             ]
         }),
