@@ -1,6 +1,4 @@
-import '@styles/style.css';
-import '@styles/stylus.styl';
-import '@styles/saas.scss';
+import '@styles/global.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
