@@ -19,6 +19,7 @@ module.exports = {
         extensions: ['.js', '.jsx'],
 
         alias: {
+            '@components': path.resolve(__dirname, 'src/components'),
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@styles': path.resolve(__dirname, 'src/css'),
             '@scripts': path.resolve(__dirname, 'src/js'),
@@ -42,17 +43,8 @@ module.exports = {
                 ]
             },
             {
-                test: /\.styl$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'stylus-loader'
-                ],
-            },
-            {
                 test: /\.s[ac]ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
                     'style-loader',
                     'css-loader',
                     'sass-loader'
@@ -103,6 +95,7 @@ module.exports = {
 
         new CleanWebpackPlugin()
     ],
+
     optimization: {
         minimize: true,
         minimizer: [

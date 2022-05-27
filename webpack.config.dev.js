@@ -5,7 +5,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-
 module.exports = {
     mode: 'development',
 
@@ -22,6 +21,7 @@ module.exports = {
         extensions: ['.js', '.jsx'],
 
         alias: {
+            '@components': path.resolve(__dirname, 'src/components'),
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@styles': path.resolve(__dirname, 'src/css'),
             '@scripts': path.resolve(__dirname, 'src/js'),
@@ -47,7 +47,6 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
                     'style-loader',
                     'css-loader',
                     'sass-loader'
